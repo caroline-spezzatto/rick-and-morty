@@ -2,6 +2,8 @@
 
 ### Projeto de estudo, criado utilizando a API: https://rickandmortyapi.com/
 
+### Para visualizar acesse: https://prismatic-eclair-298973.netlify.app/
+
 ---
 
 ## Em progresso ⚠️
