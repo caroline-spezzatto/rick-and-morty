@@ -12,13 +12,13 @@ export const ContentStyled = styled.div`
   margin-top: 30px;
   display: inline-block;
 
-  .css-1fjvggn-MuiPaper-root-MuiAccordion-root {
+  .MuiAccordion-root {
     color: rgb(182, 183, 179);
     background-color: rgb(98, 95, 95);
     border: 4px solid rgb(128, 128, 128);
   }
 
-  .css-pwcg7p-MuiCollapse-root {
+  .MuiCollapse-root {
     padding: 10px;
     color: rgb(60, 59, 59);
     background-color: rgb(150, 147, 147);

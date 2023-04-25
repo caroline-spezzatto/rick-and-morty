@@ -22,25 +22,26 @@ export const ContentStyled = styled.div`
 export const BoxStyled = styled(Box)`
   width: 500px;
 
-  .css-16lloyr-MuiBottomNavigation-root {
+  .MuiBottomNavigation-root {
     border-radius: 10px;
     background-color: rgb(150, 147, 147);
   }
 
-  .css-1bjk3jo-MuiButtonBase-root-MuiBottomNavigationAction-root.Mui-selected {
-    color: rgb(192, 223, 64);
+  .MuiButtonBase-root {
+    .Mui-selected {
+      color: rgb(192, 223, 64);
+    }
   }
-
   @media screen and (max-width: 400px) {
     width: 320px;
 
-    .css-1bjk3jo-MuiButtonBase-root-MuiBottomNavigationAction-root {
-    min-width: 0;
-  }
+    .MuiButtonBase-root {
+      min-width: 0;
+    }
 
-  .MuiBottomNavigationAction-label {
-    font-size: 12px;
-  }
+    .MuiBottomNavigationAction-label {
+      font-size: 12px;
+    }
   }
 `
 

@@ -69,11 +69,11 @@ export const FooterStyled = styled.footer`
   .MuiPaginationItem-root {
     color: rgb(182, 183, 179);
     background-color: rgb(105, 105, 105);
-  }
 
-  .css-lqq3n7-MuiButtonBase-root-MuiPaginationItem-root.Mui-selected {
-    color: rgb(105, 105, 105);
-    background-color: rgb(192, 192, 192);
+    &.Mui-selected {
+      color: rgb(105, 105, 105);
+      background-color: rgb(192, 192, 192);
+    }
   }
 `
 
