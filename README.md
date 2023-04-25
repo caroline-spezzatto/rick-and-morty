@@ -13,6 +13,8 @@
 
   - Não está sendo possível consultar um personagem através de digitação, somente seleção
 
+- Na tela de Episódios só está sendo exibido os episódios existentes na página 1
+
 - Adicionar um botão de "Voltar" nas páginas para retornar a home
 
 - Adicionar testes
