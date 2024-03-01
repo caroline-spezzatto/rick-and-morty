@@ -23,10 +23,6 @@ export const CardCharacterStyled = styled(Dialog)`
   }
 `
 
-export const NameStyled = styled.b`
-  margin-left: 20px;
-`
-
 export const ImageCardStyled = styled.img`
   max-width: 200px;
   margin-top: 20px;

@@ -1,35 +1,19 @@
-import {
-  styled,
-  AccordionSummary,
-  Accordion as MuiAccordion,
-  AccordionProps as AccordionPropsMui
-} from '@mui/material'
+import { Box, AccordionSummary, Accordion as MuiAccordion } from '@mui/material'
 import { ArrowForwardIosSharp } from '@mui/icons-material'
 import { AccordionProps } from './interface'
-import { ContentStyled } from './styles'
-
-const AccordionMui = styled((props: AccordionPropsMui) => (
-  <MuiAccordion disableGutters elevation={0} square {...props} />
-))(({ theme }) => ({
-  border: `1px solid ${theme.palette.divider}`,
-  '&:not(:last-child)': {
-    borderBottom: 0
-  },
-  '&:before': {
-    display: 'none'
-  }
-}))
 
 export const Accordion = ({ children, content, id }: AccordionProps) => {
   return (
-    <AccordionMui>
+    <MuiAccordion square elevation={0} disableGutters>
       <AccordionSummary
         id={id}
         expandIcon={<ArrowForwardIosSharp sx={{ fontSize: '1.2rem' }} />}
       >
-        <ContentStyled key={id}>{content}</ContentStyled>
+        <Box key={id} textAlign="left">
+          {content}
+        </Box>
       </AccordionSummary>
       {children}
-    </AccordionMui>
+    </MuiAccordion>
   )
 }

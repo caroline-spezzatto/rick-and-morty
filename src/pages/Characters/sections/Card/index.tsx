@@ -1,5 +1,5 @@
-import { Grid } from '@mui/material'
-import { CardCharacterStyled, ImageCardStyled, NameStyled } from './styles'
+import { Grid, Typography } from '@mui/material'
+import { CardCharacterStyled, ImageCardStyled } from './styles'
 import { CardProps } from './interface'
 
 export const Card = ({
@@ -38,7 +38,7 @@ export const Card = ({
         </Grid>
       </Grid>
       <Grid container>
-        <NameStyled>{name}</NameStyled>
+        <Typography marginLeft={4}>{name}</Typography>
       </Grid>
     </CardCharacterStyled>
   )

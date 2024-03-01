@@ -1,4 +1,4 @@
-import { Link } from '~components'
+import { Link } from 'react-router-dom'
 import Logo from '../../archives/logo.png'
 import { HeaderStyled } from './styles'
 

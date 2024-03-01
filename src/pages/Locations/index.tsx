@@ -1,8 +1,9 @@
 import { useState } from 'react'
 import { useQuery } from '@apollo/client'
+import { CircularProgress } from '@mui/material'
 import { GET_LOCATIONS } from '~graphql'
 import { LocationsResponse } from './interfaces'
-import { Header, Accordion, Pagination, CircularProgress } from '~components'
+import { Header, Accordion, Pagination } from '~components'
 import { CircularProgressStyled, ContentStyled, FooterStyled } from './styles'
 
 const Locations = () => {

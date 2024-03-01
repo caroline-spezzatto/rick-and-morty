@@ -1,13 +1,7 @@
 import { useState } from 'react'
 import { useQuery } from '@apollo/client'
 import { GET_CHARACTERS } from '~graphql'
-import {
-  Autocomplete,
-  CircularProgress,
-  Grid,
-  Header,
-  Pagination
-} from '~components'
+import { Autocomplete, Header, Pagination } from '~components'
 import { CharactersResponse, CharactersData } from './interfaces'
 import { Card } from './sections'
 import {
@@ -18,6 +12,7 @@ import {
   SearchFieldStyled,
   CircularProgressStyled
 } from './styles'
+import { Box, CircularProgress, Grid } from '@mui/material'
 
 const Characters = () => {
   const [page, setPage] = useState(1)

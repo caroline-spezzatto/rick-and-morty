@@ -1,15 +1,10 @@
 import { useState } from 'react'
 import { useQuery } from '@apollo/client'
 import { GET_SEASONS } from '~graphql'
-import { BottomNavigation, CircularProgress, Header } from '~components'
+import { Header } from '~components'
 import { EpisodesResponse } from './interfaces'
-import {
-  BoxStyled,
-  ContentStyled,
-  EpisodesStyled,
-  EmptyCardStyled,
-  CircularProgressStyled
-} from './styles'
+import { CircularProgressStyled, TabStyled, TabsStyled } from './styles'
+import { Box, CircularProgress, Paper, Typography } from '@mui/material'
 
 const Seasons = () => {
   const [value, setValue] = useState(0)
@@ -20,9 +15,7 @@ const Seasons = () => {
 
   const numberOfSeasons = [0, 1, 2, 3, 4]
 
-  const selectedSeason = numberOfSeasons.find(
-    (season) => season === value
-  )
+  const selectedSeason = numberOfSeasons.find(season => season === value)
 
   const getEpisodes = (season: string) => {
     return data?.episodes?.results.filter(({ episode }) => {
@@ -42,34 +35,58 @@ const Seasons = () => {
       ) : (
         <>
           <Header />
-          <ContentStyled>
-            <BoxStyled>
-              <BottomNavigation
+          <Box display="inline-block" maxWidth={500}>
+            <Box sx={{ backgroundColor: '#969393', borderRadius: 2 }}>
+              <TabsStyled
                 value={value}
-                label={seasons}
-                onChange={(_, newValue) => {
-                  setValue(newValue)
-                }}
-              />
-            </BoxStyled>
-            <div>
-              {value === selectedSeason &&
-                getEpisodes(`0${selectedSeason + 1}`)?.map(
-                  ({ name, air_date }, index) => {
-                    return (
-                      <EpisodesStyled key={name}>
-                        <p>{index + 1}</p>
-                        <p>{name}</p>
-                        <p>{air_date}</p>
-                      </EpisodesStyled>
+                onChange={(_, newValue) => setValue(newValue)}
+              >
+                {seasons.map(season => (
+                  <TabStyled label={season} key={season} />
+                ))}
+              </TabsStyled>
+            </Box>
+            <Box>
+              {noEpisodes ? (
+                <Paper
+                  sx={{
+                    marginTop: 2,
+                    width: '100%',
+                    borderRadius: 2,
+                    minHeight: '100px',
+                    color: '#c4c4c4',
+                    backgroundColor: '#535454'
+                  }}
+                  elevation={0}
+                >
+                  <Typography>Unavailable episodes</Typography>
+                </Paper>
+              ) : (
+                <>
+                  {getEpisodes(`0${(selectedSeason as number) + 1}`)?.map(
+                    ({ id, name, air_date }, index) => (
+                      <Paper
+                        sx={{
+                          marginTop: 2,
+                          width: '100%',
+                          borderRadius: 2,
+                          minHeight: '100px',
+                          color: '#c4c4c4',
+                          backgroundColor: '#535454'
+                        }}
+                        key={id}
+                        elevation={0}
+                      >
+                        <Typography>{index + 1}</Typography>
+                        <Typography>{name}</Typography>
+                        <Typography>{air_date}</Typography>
+                      </Paper>
                     )
-                  }
-                )}
-              {noEpisodes && (
-                <EmptyCardStyled>Unavailable episodes</EmptyCardStyled>
+                  )}
+                </>
               )}
-            </div>
-          </ContentStyled>
+            </Box>
+          </Box>
         </>
       )}
     </>

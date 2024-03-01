@@ -1,7 +1,8 @@
+import { Link } from 'react-router-dom'
 import Episodes from '../../archives/seasons.png'
 import Locations from '../../archives/locations.png'
 import Characters from '../../archives/characters.png'
-import { Header, Link } from '~components'
+import { Header } from '~components'
 import { ContentStyled, LinksStyled } from './styles'
 import Menu from './section/Menu'
 
