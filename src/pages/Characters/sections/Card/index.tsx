@@ -15,30 +15,40 @@ export const Card = ({
 }: CardProps) => {
   return (
     <CardCharacterStyled open={onClick} onClose={onClose}>
-      <Grid container spacing={12}>
-        <Grid item xs={5}>
-          <ImageCardStyled src={image} alt={name} />
-        </Grid>
-        <Grid item xs={7} textAlign="left">
-          <p>
-            <b>Status:</b> {status}
-          </p>
-          <p>
-            <b>Specie:</b> {species}
-          </p>
-          <p>
-            <b>Gender:</b> {gender}
-          </p>
-          <p>
-            <b>Origin:</b> {origin}
-          </p>
-          <p>
-            <b>Number of episodes:</b> {episode}
-          </p>
-        </Grid>
-      </Grid>
       <Grid container>
-        <Typography marginLeft={4}>{name}</Typography>
+        <Grid item xs={6}>
+          <Grid item>
+            <ImageCardStyled src={image} alt={name} />
+          </Grid>
+          <Grid item>
+            <Typography
+              variant="h6"
+              marginLeft={4}
+              fontWeight={600}
+              display="contents"
+            >
+              {name}
+            </Typography>
+          </Grid>
+        </Grid>
+        <Grid item xs={6} display="grid">
+          <Typography>
+            <Typography fontWeight={600}>Status:</Typography> {status}
+          </Typography>
+          <Typography>
+            <Typography fontWeight={600}>Specie:</Typography> {species}
+          </Typography>
+          <Typography>
+            <Typography fontWeight={600}>Gender:</Typography> {gender}
+          </Typography>
+          <Typography>
+            <Typography fontWeight={600}>Origin:</Typography> {origin}
+          </Typography>
+          <Typography>
+            <Typography fontWeight={600}>Number of episodes:</Typography>
+            {episode}
+          </Typography>
+        </Grid>
       </Grid>
     </CardCharacterStyled>
   )

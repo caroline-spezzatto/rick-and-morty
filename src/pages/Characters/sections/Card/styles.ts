@@ -4,21 +4,12 @@ import { Dialog } from '@mui/material'
 export const CardCharacterStyled = styled(Dialog)`
   .MuiDialog-paper {
     padding: 20px;
+    min-width: 500px;
     border-radius: 20px;
     background-color: rgb(192, 192, 192);
 
     @media screen and (max-width: 400px) {
       padding: 10px;
-    }
-  }
-
-  p,
-  b {
-    font-size: 20px;
-    color: rgb(83, 84, 84);
-
-    @media screen and (max-width: 400px) {
-      font-size: 14px;
     }
   }
 `

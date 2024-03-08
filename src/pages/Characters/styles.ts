@@ -1,7 +1,9 @@
 import styled from 'styled-components'
 
 export const SearchFieldStyled = styled.div`
-  .MuiAutocomplete-root {
+  display: grid;
+
+  .MuiFormControl-root {
     max-width: 380px;
     margin-left: 60px;
     border-radius: 6px;
@@ -28,7 +30,7 @@ export const SearchFieldStyled = styled.div`
     color: rgb(182, 183, 179);
   }
 
-  .MuiAutocomplete-popupIndicator {
+  .MuiFormControl-popupIndicator {
     color: rgb(182, 183, 179);
   }
 `

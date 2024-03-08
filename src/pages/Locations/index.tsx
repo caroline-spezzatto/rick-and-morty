@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { useQuery } from '@apollo/client'
-import { CircularProgress } from '@mui/material'
+import { CircularProgress, Typography } from '@mui/material'
 import { GET_LOCATIONS } from '~graphql'
 import { LocationsResponse } from './interfaces'
 import { Header, Accordion, Pagination } from '~components'
@@ -13,6 +13,8 @@ const Locations = () => {
     variables: { page: page }
   })
 
+  const locations = data?.locations?.results
+
   return (
     <>
       {loading ? (
@@ -23,33 +25,36 @@ const Locations = () => {
         <>
           <Header />
           <ContentStyled>
-            {data?.locations?.results?.map(
-              ({ id, name, type, dimension, residents }) => {
-                return (
-                  <Accordion
-                    id={id}
-                    content={
-                      <>
-                        <b>{`Location: ${name}, ${type}`}</b>
-                        <p>{`Dimension:  ${dimension}`}</p>
-                      </>
-                    }
-                  >
+            {locations?.map(({ id, name, type, dimension, residents }) => {
+              return (
+                <Accordion
+                  id={id}
+                  content={
                     <>
-                      <b>Residents:</b>
-                      {residents.map(({ name }) => {
-                        return <p>{name}</p>
-                      })}
-                      {residents.length <= 0 && <p>No residents</p>}
+                      <Typography
+                        fontWeight={600}
+                      >{`Location: ${name}, ${type}`}</Typography>
+                      <Typography>{`Dimension:  ${dimension}`}</Typography>
                     </>
-                  </Accordion>
-                )
-              }
-            )}
+                  }
+                >
+                  <>
+                    <Typography fontWeight={600}>Residents:</Typography>
+                    {residents.map(({ name }) => {
+                      return <Typography>{name}</Typography>
+                    })}
+                    {residents.length <= 0 && (
+                      <Typography>No residents</Typography>
+                    )}
+                  </>
+                </Accordion>
+              )
+            })}
           </ContentStyled>
           <FooterStyled>
             <Pagination
               count={7}
+              page={page}
               onChange={(_, value) => {
                 setPage(value)
               }}
